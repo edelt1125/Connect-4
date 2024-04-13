@@ -1,0 +1,24 @@
+/* Styles for the game board cells */
+#board td {
+    width: 50px;       /* set width of each cell */
+    height: 50px;      /* set height of each cell */
+    border: solid 1px #666; /* border color and thickness */
+}
+
+/* Styles for the game pieces within the cells */
+.piece {
+    margin: 5px;             /* space around the pieces */
+    width: 80%;              /* relative width within the cell */
+    height: 80%;             /* relative height within the cell */
+    border-radius: 50%;      /* make the pieces circular */
+}
+
+/* Styles for the clickable area above each column */
+#column-top td {
+    border: dashed 1px lightgray; /* dashed border for clickable areas */
+}
+
+/* Hover effect for clickable areas */
+#column-top td:hover {
+    background-color: gold;  /* change background to gold on hover */
+}
