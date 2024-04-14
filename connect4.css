@@ -1,24 +1,134 @@
-/* Styles for the game board cells */
-#board td {
-    width: 50px;       /* set width of each cell */
-    height: 50px;      /* set height of each cell */
-    border: solid 1px #666; /* border color and thickness */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-30px);
+    }
+    60% {
+      transform: translateY(-15px);
+    }
+  }
+
+@keyframes fall {
+    0% {
+      transform: translateY(-500px); /* Start above the board */
+      opacity: 0; /* Optionally start as invisible to make it appear suddenly */
+    }
+    60% {
+      opacity: 1; /* Set to full opacity before it arrives in place */
+    }
+    100% {
+      transform: translateY(0px); /* End at the final position on the board */
+    }
+} 
+
+* {
+    font-family: 'Montserrat', sans-serif;
 }
 
+.header {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+/* Styles for the game board cells */
+#board td {
+    width: 60px;       /* set width of each cell */
+    height: 60px;      /* set height of each cell */
+    border: solid 2.5px #666; /* border color and thickness */
+}
+
+@media screen and (max-width: 1000px) {
+    #board td {
+        width: 45px;
+        height: 45px;
+    }
+}
 /* Styles for the game pieces within the cells */
 .piece {
     margin: 5px;             /* space around the pieces */
     width: 80%;              /* relative width within the cell */
     height: 80%;             /* relative height within the cell */
     border-radius: 50%;      /* make the pieces circular */
+    animation: fall .75s ease-in;
 }
 
 /* Styles for the clickable area above each column */
 #column-top td {
-    border: dashed 1px lightgray; /* dashed border for clickable areas */
+    border: dashed 3px slategrey; /* dashed border for clickable areas */
+    opacity: 0.5;
+    transition: all .5s ease-in-out;
 }
+
 
 /* Hover effect for clickable areas */
 #column-top td:hover {
     background-color: gold;  /* change background to gold on hover */
+    transition: all .5s ease-in-out;
+    
 }
+
+.game-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 5px;
+}
+
+#game {
+    margin-top: 60px; /* Add space between the controls and the game board */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body {
+    background: #FFEFBA;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+#p1-color {
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #222;
+    background-color: transparent;
+    font-weight: 500
+}
+
+#p2-color {
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #222;
+    background-color: transparent;
+    font-weight: 500
+}
+
+#start-game {
+    color: white;
+    background: linear-gradient(to right, #4776E6 0%, #7f47e6 100%);
+    padding: 8.5px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: all .4s ease-in-out;
+  }
+
+  #start-game:hover {
+    opacity: .5;
+    transition: all .4s ease-in-out;
+  }

@@ -147,6 +147,16 @@ class Game {
   
 /** Initialize the game when the 'Start Game' button is clicked */
   document.getElementById('start-game').addEventListener('click', () => {
+    // Ensure user inputs values for both colors
+    let p1Color = document.getElementById('p1-color').value;
+    let p2Color = document.getElementById('p2-color').value;
+  
+    // Check if either input is empty
+    if (!p1Color || !p2Color) {
+      alert('Both players must choose a color.');
+      return; // Don't start the game
+    }
+
     let p1 = new Player(document.getElementById('p1-color').value);
     let p2 = new Player(document.getElementById('p2-color').value);
     new Game(p1, p2);
